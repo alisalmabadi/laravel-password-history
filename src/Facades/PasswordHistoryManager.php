@@ -5,9 +5,8 @@ namespace Imanghafoori\PasswordHistory\Facades;
 use Imanghafoori\SmartFacades\Facade;
 
 /**
- * Class PasswordHistoryManager
+ * Class PasswordHistoryManager.
  *
- * @package Imanghafoori\PasswordHistory\Facades
  * @method static isInHistoryOfUser($password, $user, $depth = null)
  * @method static isInHistory($password, $userId, $depth = null, $guard = '')
  * @method static logPasswordForUser($password, $user)

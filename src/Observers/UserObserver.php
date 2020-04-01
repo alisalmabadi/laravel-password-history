@@ -6,7 +6,7 @@ use Imanghafoori\PasswordHistory\Facades\PasswordHistoryManager;
 
 class UserObserver
 {
-    function saved($user)
+    public function saved($user)
     {
         PasswordHistoryManager::logForUserModel($user);
     }

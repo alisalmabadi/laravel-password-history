@@ -3,20 +3,21 @@
 namespace Imanghafoori\PasswordHistory;
 
 use Illuminate\Support\ServiceProvider;
-use Imanghafoori\PasswordHistory\Observers\UserObserver;
 use Imanghafoori\PasswordHistory\Facades\PasswordHistoryManager;
+use Imanghafoori\PasswordHistory\Observers\UserObserver;
 
 class PasswordHistoryServiceProvider extends ServiceProvider
 {
     public function register()
     {
         PasswordHistoryManager::shouldProxyTo(PasswordHistory::class);
-        $this->mergeConfigFrom(__DIR__ .'/config/password_history.php', 'password_history');
+        $this->mergeConfigFrom(__DIR__.'/config/password_history.php', 'password_history');
     }
+
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            $this->publishes([__DIR__ .'/config/password_history.php' => config_path('password_history.php')]);
+            $this->publishes([__DIR__.'/config/password_history.php' => config_path('password_history.php')]);
             $this->setMigrationFolder();
         }
 
@@ -34,6 +35,6 @@ class PasswordHistoryServiceProvider extends ServiceProvider
 
     private function setMigrationFolder()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/Database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
     }
 }
